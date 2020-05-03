@@ -24,8 +24,7 @@ jobs:
         pipenv install --dev
     - name: Linters
       run: |
-        # TBD
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        invoke lint
     - name: Tests
       run: |
-        pytest
+        invoke test

@@ -24,7 +24,7 @@ jobs:
         pipenv install --dev
     - name: Linters
       run: |
-        invoke lint
+        pipenv run invoke lint
     - name: Tests
       run: |
-        invoke test
+        pipenv run invoke test

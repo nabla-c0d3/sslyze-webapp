@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<meta charset=utf-8>
+<title>SSLyze Web App</title>
+
+<style>
+     body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.6;
+ }
+    .container {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="container">
+Warning about authentication  {{hostname}}: {{port}}
+
+{% for scan_result in cipher_suites_scan_results %}
+        <h3>{{scan_result.tls_version_used.name}}</h3>
+
+        <table>
+             <tr>
+
+   <th>Cipher Suite</th>
+   <th>Key Size</th>
+   <th>Ephemeral Key</th>
+             </tr>
+{% for accepted_cipher in scan_result.accepted_cipher_suites %}
+<tr>
+   <td>{{accepted_cipher.cipher_suite.name}}</td>
+   <td>{{accepted_cipher.cipher_suite.key_size}}</td>
+   <td>{{accepted_cipher.ephemeral_key.type_name}} - {{accepted_cipher.ephemeral_key.size}} bits</td>
+</tr>
+
+{% endfor %}
+        </table>
+{% endfor %}
+
+    </div>
+</body>
+
+</html>

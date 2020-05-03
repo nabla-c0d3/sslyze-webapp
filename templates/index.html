@@ -1,0 +1,40 @@
+<html>
+
+<head>
+<meta charset=utf-8>
+<title>SSLyze Web App</title>
+
+<style>
+     body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.6;
+ }
+    .container {
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+
+</head>
+
+<body>
+
+	<div class="container">
+Warning about authentication
+
+<form action="/scan_result" method="post">
+
+  <label for="hostname">Hostname:</label><br>
+  <input type="text" id="hostname" name="hostname" value="www.google.com"><br>
+
+  <label for="port">Port:</label><br>
+  <input type="text" id="port" name="port" value="443"><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+    </div>
+</body>
+
+</html>
